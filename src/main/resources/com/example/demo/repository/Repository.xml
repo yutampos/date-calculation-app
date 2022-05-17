@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis//DTD mapper3.0" "http://mybatis.org/dtd/mybatis-mapper.dtd">
+<mapper namespace="com.example.demo.repository">
+    <select id="findByAll" resultType="com.example.demo.Repository">
+        SELECT
+            id,
+            name,
+            year,
+            month,
+            day
+        FROM
+            calcu_num
+    </select>
+    <select id="findById" resultType="com.example.demo.Repository">
+        SELECT
+            id,
+            name,
+            year,
+            month,
+            day
+        FROM
+            calcu_num
+        WHERE
+            id = #{id}
+    </select>
+    <insert id="create">
+        INSERT INTO
+            calcu_num(
+            id,
+            name,
+            year,
+            month,
+            day
+            ) 
+        VALUES
+            (#{C.id},
+            #{C.name},
+            #{C.year},
+            #{C.month},
+            #{C.day},
+            )
+    </insert>
+    <update id="update">
+        UPDATE
+            calcu_num
+        SET
+            id = #{U.id},
+            name = #{U.name},
+            year = #{U.year},
+            month = #{U.month},
+            day = #{U.day}
+    </update>
+    <delete id="delete">
+        DELETE FROM
+            calcu_num
+        WHERE
+            id = #{calcuD.id}
+    </delete>
+</mapper>
